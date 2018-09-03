@@ -1,0 +1,46 @@
+{
+  "customers": [
+    {
+      "id": 0,
+      "name": "Strickland Cantu",
+      "email": "stricklandcantu@zaj.com",
+      "birthYear": 1983
+    },
+    {
+      "id": 1,
+      "name": "Maxwell Copeland",
+      "email": "maxwellcopeland@zaj.com",
+      "birthYear": 1991
+    },
+    {
+      "id": 2,
+      "name": "Odessa Salinas",
+      "email": "odessasalinas@zaj.com",
+      "birthYear": 1994
+    },
+    {
+      "id": 3,
+      "name": "Collins Rosales",
+      "email": "collinsrosales@zaj.com",
+      "birthYear": 1983
+    },
+    {
+      "id": 4,
+      "name": "Leta Davenport",
+      "email": "letadavenport@zaj.com",
+      "birthYear": 1994
+    },
+    {
+      "id": 5,
+      "name": "Crane Rush",
+      "email": "cranerush@zaj.com",
+      "birthYear": 1996
+    },
+    {
+      "name": "Puang Lee",
+      "email": "petelee@gmail.com",
+      "birthYear": 1991,
+      "id": 6
+    }
+  ]
+}
