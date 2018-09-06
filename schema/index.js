@@ -9,6 +9,24 @@ const {
   GraphQLNonNull
 } = require('graphql');
 
+const PlanType = new GraphQLObjectType({
+  name: 'Plan',
+  fields: () => ({
+    id: {
+      type: GraphQLInt
+    },
+    name: {
+      type: GraphQLString
+    },
+    bonus: {
+      type: GraphQLInt
+    },
+    price: {
+      type: GraphQLInt
+    }
+  })
+});
+
 const CustomerType = new GraphQLObjectType({
   name: 'Customer',
   fields: () => ({
@@ -23,6 +41,14 @@ const CustomerType = new GraphQLObjectType({
     },
     birthYear: {
       type: GraphQLInt
+    },
+    plan: {
+      type: PlanType,
+      resolve(parentValue, args) { // eslint-disable-line no-unused-vars
+        return axios
+          .get(`${config.jsonServerBaseUrl}/plans/${parentValue.planId}`)
+          .then(res => res.data);
+      }
     }
   })
 });
