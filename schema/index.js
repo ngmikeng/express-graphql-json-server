@@ -140,6 +140,64 @@ const mutation = new GraphQLObjectType({
           .patch(`${config.jsonServerBaseUrl}/customers/${args.id}`, args)
           .then(res => res.data);
       }
+    },
+    addPlan: {
+      type: PlanType,
+      args: {
+        name: {
+          type: new GraphQLNonNull(GraphQLString)
+        },
+        price: {
+          type: new GraphQLNonNull(GraphQLInt)
+        },
+        bonus: {
+          type: GraphQLInt
+        }
+      },
+      resolve(parentValue, args) { // eslint-disable-line no-unused-vars
+        return axios
+          .post(`${config.jsonServerBaseUrl}/plans`, {
+            name: args.name,
+            price: args.price,
+            bonus: args.bonus
+          })
+          .then(res => res.data);
+      }
+    },
+    deletePlan: {
+      type: PlanType,
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLInt)
+        }
+      },
+      resolve(parentValue, args) { // eslint-disable-line no-unused-vars
+        return axios
+          .delete(`${config.jsonServerBaseUrl}/plans/${args.id}`)
+          .then(res => res.data);
+      }
+    },
+    updatePlan: {
+      type: PlanType,
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLInt)
+        },
+        name: {
+          type: GraphQLString
+        },
+        price: {
+          type: GraphQLInt
+        },
+        bonus: {
+          type: GraphQLInt
+        },
+      },
+      resolve(parentValue, args) { // eslint-disable-line no-unused-vars
+        return axios
+          .patch(`${config.jsonServerBaseUrl}/plans/${args.id}`, args)
+          .then(res => res.data);
+      }
     }
   }
 });
